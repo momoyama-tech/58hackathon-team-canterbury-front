@@ -1,10 +1,10 @@
 const WEBSOCKET_URL = import.meta.env.VITE_WEBSOCKET_URL || 'ws://localhost:3000/cable';
 
 export function connectWebSocket(room, onMessage) {
-    const socket = new WebSocket(WEBSOCKET_URL);
+    const socket = new WebSocket('ws://localhost:3000/cable');
 
     socket.onopen = () => {
-        console.log(`Connected to ${WEBSOCKET_URL} (room: ${room})`);
+        console.log(`Connected to ${'ws://localhost:3000/cable'} (room: ${room})`);
         socket.send(JSON.stringify({
             command: 'subscribe',
             identifier: JSON.stringify({ channel: 'RoomChannel', room })
