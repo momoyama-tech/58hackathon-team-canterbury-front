@@ -30,6 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create .env.production
+        run: |
+          echo "VITE_WEBSOCKET_URL=${{ secrets.VITE_WEBSOCKET_URL }}" > .env.production
+
       - name: build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
