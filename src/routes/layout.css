@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+
+    .main{
+        max-width: 500px;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #000000;
+    }
+}
