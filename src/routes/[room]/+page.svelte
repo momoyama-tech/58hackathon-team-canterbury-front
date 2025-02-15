@@ -18,7 +18,6 @@
   ];
   export let roomId = "";
   $: roomId = $page.params.room;
-  export let qrCodeSrc = "https://placehold.jp/500x500.png";
 </script>
   
 <h1>WeReal?</h1>
