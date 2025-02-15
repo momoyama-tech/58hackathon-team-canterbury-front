@@ -2,8 +2,8 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
   import { connectWebSocket } from '$lib/chat.js';
-  import ImageUploader from '$lib/components/ImageUploader.svelte';
-  import Timer from '$lib/components/Timer.svelte';
+  import ImageUploader from '$src/components/ImageUploader.svelte';
+  import Timer from '$src/components/Timer.svelte';
 
   let messages = []; // 受信したメッセージを保存
   let inputMessage = '';

@@ -5,6 +5,9 @@ const production = process.env.NODE_ENV === 'production';
 const config = {
 	kit: {
 		adapter: adapter(),
+		alias: {
+			"$src": "src"
+		}
 	}
 };
 
