@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
+
+<script>
+    import BasicIcon from "../components/Icons/BasicIcon/index.svelte"
+</script>
+    <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+
+<BasicIcon src="/images/defaultIcon.png" size=50/>
