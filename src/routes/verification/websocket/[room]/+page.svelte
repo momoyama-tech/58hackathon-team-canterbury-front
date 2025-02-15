@@ -2,7 +2,8 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
   import { connectWebSocket } from '$lib/chat.js';
-  import ImageUploader from '$lib/components/ImageUploader.svelte'; // 追加 ✅
+  import ImageUploader from '$lib/components/ImageUploader.svelte';
+  import Timer from '$lib/components/Timer.svelte';
 
   let messages = []; // 受信したメッセージを保存
   let inputMessage = '';
@@ -23,7 +24,7 @@
     socket.send(JSON.stringify({
       command: 'message',
       identifier: JSON.stringify({ channel: 'RoomChannel', room }),
-      data: JSON.stringify({ action: "speak", text: inputMessage }) // 🔹 action: "speak" を追加
+      data: JSON.stringify({ text: inputMessage })
     }));
 
     inputMessage = ''; // 入力欄をリセット
@@ -43,3 +44,5 @@
 
 <input bind:value={inputMessage} placeholder="メッセージを入力">
 <button on:click={sendMessage}>送信</button>
+
+<Timer />
