@@ -4,11 +4,13 @@
     import { onMount } from "svelte";
     import { browser } from "$app/environment";
 
-    let isProfileModalOpen = true;
+    let isProfileModalOpen = false;
     let isRoomModalOpen = false;
 
     function closeProfileModalOpen() {
-      isProfileModalOpen = false;
+      if (!($nickname == "" || $nickname == null)) {
+        isProfileModalOpen = false;
+      }
     }
 
     function openRoomModalOpen() {
@@ -21,7 +23,10 @@
 
     onMount(() => {
       if (browser) {
-        nickname.set(localStorage.getItem("nickname") || `User-${Math.floor(Math.random() * 1000)}`);
+        nickname.set(localStorage.getItem("nickname") || "");
+        if ($nickname == "" || $nickname == null) {
+          isProfileModalOpen = true
+        }
       }
     });
 </script>
