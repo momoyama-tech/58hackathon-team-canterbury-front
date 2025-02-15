@@ -1,5 +1,6 @@
 <script>
-    import { onMount } from 'svelte';  
+    import "./style.css";
+    import { onMount } from 'svelte';
     const users = [
       {
         id: 1,
@@ -13,49 +14,6 @@
       }
     ];
   </script>
-  
-  <style>
-    .container {
-      width: 100%;
-      max-width: 400px;
-      margin: auto;
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
-    .timer {
-      font-size: 2em;
-    }
-    .button {
-      background: #888;
-      border: none;
-      padding: 10px;
-      margin: 10px;
-      cursor: pointer;
-    }
-    .user-card {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      border-bottom: 1px solid #444;
-    }
-    .user-image {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: gray;
-      margin-right: 10px;
-    }
-    .checkbox {
-      margin-left: auto;
-    }
-    .photo {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-    }
-  </style>
   
   <div class="container">
     <h1>WeReal?</h1>

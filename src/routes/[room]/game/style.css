@@ -1,0 +1,46 @@
+.container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: #222;
+    color: white;
+    text-align: center;
+}
+
+.header
+{
+    width: 100%;
+    background-color: black;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.timer
+{
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.topic-button
+{
+    background: gray;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.camera-button
+{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+}
