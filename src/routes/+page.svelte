@@ -1,24 +1,29 @@
 <script>
     import "./style.css";
+    import { nickname } from '$lib/stores.js';
+    import { onMount } from "svelte";
+    import { browser } from "$app/environment";
 
     let isProfileModalOpen = true;
     let isRoomModalOpen = false;
 
-    function openProfileModalOpen() {
-        isProfileModalOpen = true;
-    }
-
     function closeProfileModalOpen() {
-        isProfileModalOpen = false;
+      isProfileModalOpen = false;
     }
 
     function openRoomModalOpen() {
-        isRoomModalOpen = true;
+      isRoomModalOpen = true;
     }
 
     function closeRoomModalOpen() {
-        isRoomModalOpen = false;
+      isRoomModalOpen = false;
     }
+
+    onMount(() => {
+      if (browser) {
+        nickname.set(localStorage.getItem("nickname") || `User-${Math.floor(Math.random() * 1000)}`);
+      }
+    });
 </script>
 
 <h1 class="text-3xl font-bold mb-4 text-white">WeReal?</h1>
@@ -41,7 +46,7 @@
         </div>
         <div>
           <label class="block mb-1">ニックネーム:</label>
-          <input type="text" class="border-2 border-gray-300 rounded-lg w-full p-2">
+          <input type="text" bind:value={$nickname} placeholder="ニックネームを入力" class="border-2 border-gray-300 rounded-lg w-full p-2">
         </div>
       </div>
     </div>

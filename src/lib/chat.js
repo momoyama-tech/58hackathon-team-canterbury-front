@@ -14,7 +14,6 @@ export function connectWebSocket(room, onMessage) {
     socket.onmessage = (event) => {
         const response = JSON.parse(event.data);
         if (response.type === 'ping' || !response.message) return;
-        console.log(response)
 
         if (response.message) {
             onMessage(response.message); // メッセージを受信したらコールバック実行
