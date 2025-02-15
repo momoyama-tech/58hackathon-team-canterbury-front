@@ -9,7 +9,6 @@
   let roomId = "";
   let qrCodeUrl = "";
   let players = [];
-  let nickname = `User-${Math.floor(Math.random() * 1000)}`; // 仮のニックネーム
 
   onMount(async () => {
     // roomId を取得
@@ -20,7 +19,7 @@
     qrCodeUrl = await QRCode.toDataURL(url);
 
     // WebSocket 接続
-    socket = connectWebSocket(roomId, (message) => {
+    socket = connectWebSocket(roomId, localStorage.getItem("nickname"), (message) => {
       if (message.type === "text" && message.data.command === "get_players") {
         console.log("message.data.players:", message.data.players);
         players = [...message.data.players];
