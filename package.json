@@ -55,6 +55,7 @@
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.15.5",
 		"@sveltejs/adapter-netlify": "^4.4.1",
-		"dotenv": "^16.4.7"
+		"dotenv": "^16.4.7",
+		"qrcode": "^1.5.4"
 	}
 }
