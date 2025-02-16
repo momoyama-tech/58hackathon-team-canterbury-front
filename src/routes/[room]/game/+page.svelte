@@ -1,11 +1,11 @@
 <script>
   import "./style.css";
+  import { page } from '$app/stores';
+  import ImageUploader from '$src/components/ImageUploader.svelte';
   let timer = "00:00";
+  let room = '';
 
-  function startCamera() {
-    console.log("Camera button clicked");
-    // ここにカメラ起動処理を追加
-  }
+  $: room = $page.params.room;
 </script>
 
 <div class="container">
@@ -13,6 +13,6 @@
   <div class="timer">{timer}</div>
   <button class="topic-button">お題</button>
   <div class="spacer" style="flex: 1;"></div>
-  <img src="/camera-icon.png" class="camera-button" on:click={startCamera} />
+  <ImageUploader room={room} />
 </div>
   

@@ -4,11 +4,25 @@
   import { page } from '$app/stores';
   import QRCode from "qrcode";
   import { connectWebSocket } from '$lib/chat.js';
+  import { goto } from '$app/navigation';
 
   let socket;
   let roomId = "";
   let qrCodeUrl = "";
   let players = [];
+
+  function onStartGame() {
+    // messageを送信する前にsubscribeしなければいけない
+    socket.send(JSON.stringify({
+      command: 'subscribe',
+      identifier: JSON.stringify({ channel: 'RoomChannel', room: `room_${roomId}`, nickname: localStorage.getItem("nickname") }),
+    }));
+    socket.send(JSON.stringify({
+      command: 'message',
+      identifier: JSON.stringify({ channel: 'RoomChannel', room: `room_${roomId}`, nickname: localStorage.getItem("nickname") }),
+      data: JSON.stringify({ action: "start_game", nickname: localStorage.getItem("nickname") }) // 🔹 "start_game" を送信
+    }));
+  }
 
   onMount(async () => {
     // roomId を取得
@@ -20,9 +34,15 @@
 
     // WebSocket 接続
     socket = connectWebSocket(roomId, localStorage.getItem("nickname"), (message) => {
-      if (message.type === "text" && message.data.command === "get_players") {
-        console.log("message.data.players:", message.data.players);
-        players = [...message.data.players];
+      console.log("message: ", message)
+      if (message.type === "text") {
+        if (message.data.command === "get_players") {
+          console.log("message.data.players:", message.data.players);
+          players = [...message.data.players];
+        }else if (message.data.command === "start_game") {
+          console.log("start_game!");
+          goto(`${roomId}/game`);
+        }
       }
     });
   });
@@ -58,5 +78,5 @@
 
 <div class="buttons">
   <div class="button">🔗</div>
-  <div class="button">START</div>
+  <div class="button" on:click={onStartGame}>START</div>
 </div>

@@ -3,10 +3,10 @@
     import { nickname } from '$lib/stores.js';
     import { onMount } from "svelte";
     import { browser } from "$app/environment";
+    import { goto } from '$app/navigation';
 
     import BasicButton from '$src/components/Buttons/btn/index.svelte';
     import Logo from '$src/components/Logos/Logo/index.svelte';
-
 
     let isProfileModalOpen = false;
     let isRoomModalOpen = false;
@@ -26,6 +26,11 @@
       isRoomModalOpen = false;
     }
 
+    function createRoom() {
+      let roomId = Math.floor(Math.random() * 1000);
+      goto(`${roomId}`);
+    }
+
     onMount(() => {
       if (browser) {
         nickname.set(localStorage.getItem("nickname") || "");
@@ -39,7 +44,7 @@
 <main class="main">
   <Logo/>
   <div class="btn">
-     <BasicButton label="部屋を作成"/>
+     <BasicButton label="部屋を作成" onClick = {createRoom}/>
      <BasicButton label="部屋に入室" onClick = {openRoomModalOpen}/>
   </div>
 </main>
