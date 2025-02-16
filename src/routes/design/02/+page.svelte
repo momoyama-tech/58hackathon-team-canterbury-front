@@ -1,20 +1,28 @@
-
 <script>
     let isActive = false;
     let Links = false;
     let link_Icon = "/images/link.png";
     let Icon  = "/images/クマ.gif";
     let QR = "/images/QR.png";
-    
+    let Back_button = "/images/back_10238021.png"; 
 </script>
-<div class="Icon">
-    <div class="relative size-32 ...">
-        <div class="absolute top-0 left-0 size-16 ..."><img src={Icon} alt="代替テキスト" /></div>
+<dev class="dev">
+<p>WeRaeal?</p>
+</dev>
+
+<div class="flex justify-start ...">
+{#each Array(4) as _, i}
+    <div class="Icon">
+        <div class="relative size-23 ...">
+            <img src={Icon} alt="代替テキスト" />
+            <div class="player">
+                <p>プレイヤー名</p>
+            </div>
+        </div>
     </div>
+{/each}
 </div>
-    <div class="player">
-    <p>プレイヤー名</p>
-    </div>       
+
     <dev class="dev">
     <h1 class="daimei">ゲーム説明</h1>
     <p>写真人狼です</p>
@@ -27,7 +35,7 @@
 
     
     <dev class="dev">
-    <p>room:</p>
+    <p>room:0000</p>
     </dev>
 
     <div class="wrapper">
@@ -37,6 +45,7 @@
         </nav>
     </button>
 
+    
     <button class="custom-btn" on:click={() => isActive = !isActive}>
     START
     </button>
@@ -52,7 +61,7 @@
 		color: white;
 		font-family: "Hiragino Sans","ヒラギノ角ゴシック"; font-weight: 900;
         text-align: center;
-        font-size: 30px;
+        font-size:20px;
 	}
 
     h1{
