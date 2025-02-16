@@ -3,10 +3,12 @@
     import { nickname } from '$lib/stores.js';
     import { onMount } from "svelte";
     import { browser } from "$app/environment";
-    import { goto } from '$app/navigation';
 
     import BasicButton from '$src/components/Buttons/btn/index.svelte';
     import Logo from '$src/components/Logos/Logo/index.svelte';
+
+    import {goto} from '$app/navigation';
+
 
     let isProfileModalOpen = false;
     let isRoomModalOpen = false;
@@ -26,11 +28,6 @@
       isRoomModalOpen = false;
     }
 
-    function createRoom() {
-      let roomId = Math.floor(Math.random() * 1000);
-      goto(`${roomId}`);
-    }
-
     onMount(() => {
       if (browser) {
         nickname.set(localStorage.getItem("nickname") || "");
@@ -39,12 +36,20 @@
         }
       }
     });
+
+
+    let roomnum = "";
+
+    function joingame(){
+      goto (`/${roomnum}`);
+
+    }
 </script>
 
 <main class="main">
   <Logo/>
   <div class="btn">
-     <BasicButton label="部屋を作成" onClick = {createRoom}/>
+     <BasicButton label="部屋を作成"/>
      <BasicButton label="部屋に入室" onClick = {openRoomModalOpen}/>
   </div>
 </main>
@@ -76,9 +81,9 @@
       <h2 class="text-2xl font-bold mb-4 text-center">Room番号</h2>
       <div class="space-y-4">
         <div>
-          <input type="text" class="border-2 border-gray-300 rounded-lg w-full p-2">
+          <input type="text" class="border-2 border-gray-300 rounded-lg w-full p-2" bind:value={roomnum}>
         </div>
-        <button class="px-4 py-2 bg-blue-500 text-white rounded">
+        <button class="px-4 py-2 bg-blue-500 text-white rounded" on:click={joingame}>
             部屋に入室
         </button>
         <div>
