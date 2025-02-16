@@ -5,10 +5,8 @@
     import VoltsHeader from "$src/features/volt/components/VoltsHeader/index.svelte"
   
     // ページコンテンツを受け取る
-    let {children} = $props();
+    let {children} = $props(); //page.svelteの中身を受けとる
     
-
-
 </script>
 
 <ParaglideJS {i18n}>

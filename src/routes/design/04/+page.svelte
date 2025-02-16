@@ -10,12 +10,10 @@
   };
 </script>
 
-
  <div class="voltContainer">
   <!-- タイマー -->
   <VoteSection/>
   <!-- 投票カード -->
   <VoteCard {...candidate} />
+  
 </div>
-
- 
