@@ -11,6 +11,6 @@
   //})//hoverをTSにしようとしてみたが，ここのboxが反応しなかった cant find name
 </script>
 
-<button on:click={onClick} class="join-btn" id="box">
+<button on:click={onClick} class="BasicButton" id="box">
   {label}
 </button>

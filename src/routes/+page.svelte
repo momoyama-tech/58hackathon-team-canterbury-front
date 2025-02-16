@@ -4,6 +4,10 @@
     import { onMount } from "svelte";
     import { browser } from "$app/environment";
 
+    import BasicButton from '$src/components/Buttons/btn/index.svelte';
+    import Logo from '$src/components/Logos/Logo/index.svelte';
+
+
     let isProfileModalOpen = false;
     let isRoomModalOpen = false;
 
@@ -15,6 +19,7 @@
 
     function openRoomModalOpen() {
       isRoomModalOpen = true;
+      return {};
     }
 
     function closeRoomModalOpen() {
@@ -31,13 +36,14 @@
     });
 </script>
 
-<h1 class="text-3xl font-bold mb-4 text-white">WeReal?</h1>
-<button class="px-4 py-2 bg-blue-500 text-white rounded">
-    部屋を作成
-</button>
-<button on:click={openRoomModalOpen} class="px-4 py-2 bg-blue-500 text-white rounded">
-    部屋に入室
-</button>
+<main class="main">
+  <Logo/>
+  <div class="btn">
+     <BasicButton label="部屋を作成"/>
+     <BasicButton label="部屋に入室" onClick = {openRoomModalOpen}/>
+  </div>
+</main>
+
 
 {#if isProfileModalOpen}
   <div class="fixed top-0 left-0 h-screen bg-black bg-opacity-50">
