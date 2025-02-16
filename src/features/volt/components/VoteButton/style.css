@@ -1,0 +1,10 @@
+/* 投票ボタン（画面下部） */
+.VoteButton {
+    background: #807878;
+    color: white;
+    border: none;
+    padding: 12px;
+    width:100%;
+    border-radius: 8px;
+    font-size: 16px;
+  }
