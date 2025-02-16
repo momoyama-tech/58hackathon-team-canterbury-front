@@ -1,4 +1,6 @@
 <script>
-    import "./style.css"
+	import Btn from '$src/components/Buttons/btn/index.svelte';
+	import './style.css';
 </script>
-<button class="VoteButton">投票する</button>
+
+<Btn class="VoteButton" label="投票する" />
