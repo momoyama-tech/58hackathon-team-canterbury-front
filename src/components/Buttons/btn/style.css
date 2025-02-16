@@ -1,4 +1,4 @@
-.join-btn {
+.BasicButton {
     display:block;
     margin:auto;
 
@@ -16,10 +16,10 @@
  
   }
 
-  .join-btn:hover {
+  .BasicButton:hover {
     background-color: #b8b8b8;
   }
 
-  .join-btn:active {
+  .BasicButton:active {
     background-color: #909090;
   }
